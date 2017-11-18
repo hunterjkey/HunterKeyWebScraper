@@ -75,7 +75,6 @@ def characCount():
 	prevdatastr = len(datastr)
 	
 def Splinter():
-	#This Function has no purpose in my code, I just decided not to delete this attempt at getting splinter to work
 	# open a browser
 	
 	browser = Browser('chrome')
@@ -116,7 +115,7 @@ def Beaut():
 	name = name_box.text.strip() # strip() is used to remove starting and trailing
 	print name
 
-"""
+	"""
 	if (yes == 0):
 		if (name_box == 13):
 			if (12==11):
