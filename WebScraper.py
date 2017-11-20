@@ -1,13 +1,16 @@
 #My Webscraper File
 #
 
+from datetime import date
+from datetime import time
+from datetime import datetime
 import time 
 import urllib2
-from lxml import html
+"""from lxml import html
 import requests
 #This next import doesn't have any real purpose in this code, it's just there from when I tried Splinter and since I left the code in this program, I should also include the import
 from splinter import Browser
-import pandas as pd
+import pandas as pd"""
 from bs4 import BeautifulSoup
 
 print " "
@@ -23,28 +26,35 @@ print " "
 print "By: Hunter Key, Period 4"
 print " "
 
-#print "Unless you have Splinter and Pandas downloaded, this program won't function" 
-#print "correctly. Use 'pip install pandas' and 'pip install splinter' to download them" 
-#print "(ideally in a virtual environment). You can also access more information at" 
-#print "'https://hackernoon.com/mastering-python-web-scraping-get-your-data-back-e9a5cc653d88'"
+print "Unless you have BeautifulSoup downloaded, this program won't function" 
+print "correctly. Use 'pip install BeautifulSoup4' to download it" 
+print "(ideally in a virtual environment). You can also access more information at" 
+print "'https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe'"
 
 print " "
-print "this program analyzes the changes to a website's __ during a period of seconds" 
-print "you define. It does this 10 times, and then after that you will have to restart" 
-print "the program."
+print "this program analyzes the changes to a website's total character count and a " 
+print "website's first <div> tag during an interval and period of seconds you define." 
+print "After that you will have to restart the program."
 print " "
 global cnt
 
 cnt = 0
-#this variable determinew whether to use "Beaut()" depending on the site
-yes = 0
-#This next line is to ensure that my program doesn't shut down the first time it runs through the webpage
+#These next 4 lines are to ensure that my program doesn't shut down the first time it runs through the webpage
 global prevdatastr
 prevdatastr = "0"
-lnk = raw_input("What is the url of the site you want to monitor?")
-tm = int(raw_input("How many seconds do you want me to wait until I remonitor your site"))
-print " "
+global prevdivstr
+prevdivstr = "0"
 
+#this value checks to make sure that Beaut() doesn't return null
+global null
+null = 0
+
+lnk = raw_input("What is the url of the site you want to monitor?")
+inter = int(raw_input("How many times (interval) do you want me to remonitor your site?"))
+tm = int(raw_input("How many seconds do you want me to wait until I remonitor your site?"))
+
+print " "
+print " "
 
 
 def characCount():
@@ -60,17 +70,20 @@ def characCount():
 	data = webUrl.read()
 	datastr = str(data)
 	
-	if (cnt == 0):
-		print "Finding base site to moniter"
-	
-	print "there are",len(datastr),"characters in the HTML code of this current webpage"
-	if (cnt >= 1):
 	#this if statement checks to see if this isn't the first time we open the webpage
+	if (cnt == 0):
+		print "Finding base site to moniter."
 	
+	
+	if (cnt >= 1):
+		now = datetime.now()
+		print now.strftime("%a, %B %dth, %Y"), "at", now.strftime("%I:%M:%S %p")
+		print " "
+		print "there are",len(datastr),"characters in the HTML code of this current webpage."
 		if prevdatastr == len(datastr):
-			print "The website hasn't changed since you last checked it"
+			print "The website hasn't changed since you last checked it."
 		else:
-			print "The website has changed in some manner"
+			print "The website has changed in some manner."
 	
 	prevdatastr = len(datastr)
 	
@@ -100,7 +113,10 @@ def Splinter():
 	df.to_csv("links.csv")	# export to csv
 	
 def Beaut():
+	global prevdivstr
 	global yes
+	global null
+	
 	#query the website and return the html to the variable page
 	page = urllib2.urlopen(lnk)
 	
@@ -108,23 +124,33 @@ def Beaut():
 	soup = BeautifulSoup(page, "html.parser")
 	
 	# Take out the <div> of name and get its value
-	name_box = soup.find("span", attrs={"class": "instancename"})
-	print name_box
+	name_box = soup.find("div", attrs={"class": ""})
+	#print name_box
 
+	if (name_box != None):
+		name = name_box.text.strip() # strip() is used to remove starting and trailing
+		#print name
+	else:
+		name = 1
+		
+	if (cnt == 0):
+		if (name == 1):
+			print "This programmed returned 'None' as the value of the <div>. Therefore, this program"
+			print "will not be able to accuratly give you an answer for this aspect of the website."
+			print "For the remainder of this scraping, we will stop checking for this."
+			null = 1
+	if (null == 0):
+		#this if statement checks to see if this isn't the first time we open the webpage
+		if (cnt >= 1):
+			print " "
+			if (prevdivstr == name):
+				print "The first <div> in this website has remained the same since this program last"
+				print "checked it."
+			else:
+				print "This <div> and/or something inside of it has changed since this program last"
+				print "updated."
 	
-	name = name_box.text.strip() # strip() is used to remove starting and trailing
-	print name
-
-	"""
-	if (yes == 0):
-		if (name_box == 13):
-			if (12==11):
-				name = name_box.text.strip() 
-				# strip() is used to remove starting and trailing
-				print name
-		else:
-			yes = 1
-	"""
+		prevdivstr = name
 
 def lxml():
 	"""
@@ -135,7 +161,6 @@ def lxml():
 	
 	#This will create a list of buyers:
 	div = tree.xpath('//span[@id="yui_3_17_2_1_1511033227506_38"]/text()')
-
 	print div
 	"""
 	headers= {"User-Agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36"}
@@ -146,10 +171,16 @@ def lxml():
 
 	print(assignment_name)
 	
-while(cnt < 4):
+while(cnt <= inter):
+	print "-----------------------------------------------------------------------------"
 	characCount()
+	Beaut()
+	print "-----------------------------------------------------------------------------"
 	cnt += 1
+	print " "
 	print " "
 	time.sleep(tm)
 	
-print "Thank you for using WebScraper!"
+print "Thank you for using Hunter Key's WebScraper!"
+print " "
+print " "
