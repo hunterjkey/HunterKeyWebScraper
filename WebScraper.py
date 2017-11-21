@@ -6,11 +6,6 @@ from datetime import time
 from datetime import datetime
 import time 
 import urllib2
-"""from lxml import html
-import requests
-#This next import doesn't have any real purpose in this code, it's just there from when I tried Splinter and since I left the code in this program, I should also include the import
-from splinter import Browser
-import pandas as pd"""
 from bs4 import BeautifulSoup
 
 print " "
