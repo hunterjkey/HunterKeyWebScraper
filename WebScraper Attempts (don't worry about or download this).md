@@ -1,5 +1,11 @@
 These are other Webscraper things that I tried, it's just a record to refer to in the event that I'd like to try to fix any of these.
 
+from lxml import html
+import requests
+#This next import doesn't have any real purpose in this code, it's just there from when I tried Splinter and since I left the code in this program, I should also include the import
+from splinter import Browser
+import pandas as pd
+
 def Splinter():
 	# open a browser
 	
