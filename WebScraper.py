@@ -44,7 +44,9 @@ prevdivstr = "0"
 global null
 null = 0
 
-lnk = raw_input("What is the url of the site you want to monitor?")
+print "What is the url of the site you want to monitor? (ensure that the link you put" 
+print "in begins with a 'https,' otherwise, the program will not be able to" 
+lnk = raw_input("access the website and this program will only return an error.)")
 inter = int(raw_input("How many times (interval) do you want me to remonitor your site?"))
 tm = int(raw_input("How many seconds do you want me to wait until I remonitor your site?"))
 
