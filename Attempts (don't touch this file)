@@ -1,4 +1,4 @@
-These are other Webscraper things that I tried, it's just a record to refer to in the event that I'd like to try to fix any of these.
+These are other Webscraper things that I tried, it's just a record to refer to in the event that I'd like to try to fix any of these. THIS IS NOT PART OF THE WEBSCRAPER IN ANY WAY!
 
 from lxml import html
 import requests
