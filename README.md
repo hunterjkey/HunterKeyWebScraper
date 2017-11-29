@@ -1,3 +1,12 @@
+# Hunter Key's Website Scraper
+This Program takes the HTML code from a website that you gives it and chacks for changes in the number of characters within the whole HTML 
+code, and for changes within the first div tag of that website. This program isn't very good at looking at specific and numerous aspects 
+of a site, but as long as the website is secure (i.e. "https://"), the program can scrape it.
+
+
+# Instructions:
+__________________________________________________________________________________________________________________________________________
+
 1) You NEED to have Python 2.7.14 downloaded on your computer.
 2) Unless you have one you want to use, create a folder on your desktop and create a virtual envirenment within it. Thic cna be done by typing/pasting "" into the command line while in your folder.
 3) Leave the virtual envirenment alone for now and paste WebScraper.py (the other folder in this repository) into a Notepad++ document and save it into the folder that has your virtual environment under a name of your choice ("HunterWebScraper.py" is a good choice). ANYWHERE ELSE AND IT WON'T WORK.
