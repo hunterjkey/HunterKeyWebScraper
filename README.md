@@ -3,9 +3,12 @@ This Program takes the HTML code from a website that you gives it and chacks for
 code, and for changes within the first div tag of that website. This program isn't very good at looking at specific and numerous aspects 
 of a site, but as long as the website is secure (i.e. "https://"), the program can scrape it.
 
+I pulled code from https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe, along with Walker's 
+Datetime and Webdata snippets into my final product. 
+
 
 # Instructions:
-__________________________________________________________________________________________________________________________________________
+===============================================================================
 
 1) You NEED to have Python 2.7.14 downloaded on your computer.
 2) Unless you have one you want to use, create a folder on your desktop and create a virtual envirenment within it. Thic cna be done by typing/pasting "" into the command line while in your folder.
@@ -17,6 +20,5 @@ ________________________________________________________________________________
 8) There are two more inputs after this, one for the number of times the program runs and one for the time it waits between scaping, enter a value for each of these.
 9) IF all the previous steps were followed correctly, the Scraper will begin running and scrape the website per your parameters.
 
-I pulled code from https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe, along with Walker's 
-Datetime and Webdata snippets into my final product. 
+
 
