@@ -55,7 +55,6 @@ tm = int(raw_input("How many seconds do you want me to wait until I remonitor yo
 print " "
 print " "
 
-
 def characCount():
 	global prevdatastr
 	
