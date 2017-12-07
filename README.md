@@ -13,7 +13,7 @@ Attempt Documentation:
 >> Contains other kinds of web scrapers that I attempted using but was unsuccessful. It's more of a record if I want to try to fix some of them in the future.
                         
 Program Flow Charts: 
->> The XML file containing my flow chart.
+>> The XML and png file containing my flow chart.
                         
 ReadMe: 
 >> My ReadMe file that displays all of this
