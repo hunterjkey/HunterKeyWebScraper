@@ -33,4 +33,6 @@ Version 2:
 8) There are two more inputs after this, one for the number of times the program runs and one for the time it waits between scaping, enter a value for each of these.
 9) If all the previous steps were followed correctly, the Scraper will begin running and scrape the website per your parameters.
 
+
+# Core Algorithm Flowchart
 ![flowchart](https://github.com/hunterjkey/HunterKeyWebScraper/blob/master/Program%20Flow%20Chart.png?raw=true)
