@@ -10,7 +10,7 @@ Final Versions:
 >> Contains two versions of my program (each of them is slightly different), it includes the version given below in a seperate file.
                         
 Attempt Documentation: 
->> Contains other kinds of web scrapers that I attempted usingbut was unsuccessful. It's more of a record if I want to try to fix some of them in the future.
+>> Contains other kinds of web scrapers that I attempted using but was unsuccessful. It's more of a record if I want to try to fix some of them in the future.
                         
 Program Flow Chart: 
 >> The XML file containing my flow chart that is also displayed below.
