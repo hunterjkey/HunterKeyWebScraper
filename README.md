@@ -5,6 +5,19 @@ code, and for changes within the first paragraph tag of that website. This progr
 I pulled code from https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe, along with Walker's 
 Datetime and Webdata snippets into my final product. 
 
+# What Each File in this Repository is:
+===============================================================================
+Final Versions..........Contains two versions of my program (each of them is slightly 
+                        different), it includes the version given below in a seperate 
+                        file.
+Attempt Documentation...Contains other kinds of web scrapers that I attempted using
+                        but was unsuccessful. It's more of a record if I want to try
+                        to fix some of them in the future.
+Program Flow Chart......The XML file containing my flow chart that is also displayed
+                        below.
+ReadMe..................My ReadMe file that displays all of this
+Version 2...............The Python Code for my Web Scraper, install instructions are 
+                        given below this.
 
 # Instructions:
 ===============================================================================
